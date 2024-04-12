@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LLM on Rui Lei</title>
+    <link>http://localhost:1313/tags/llm/</link>
+    <description>Recent content in LLM on Rui Lei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Apr 2023 19:53:33 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>convert PowerPoint Presentation video to images and captions</title>
+      <link>http://localhost:1313/blogs/convert-powerpoint-presentation-video-to-images-and-captions/</link>
+      <pubDate>Mon, 03 Apr 2023 19:53:33 +0530</pubDate>
+      <guid>http://localhost:1313/blogs/convert-powerpoint-presentation-video-to-images-and-captions/</guid>
+      <description>ppt演讲视频转文稿+图片&#xA;有个很好的想法，这个工具”PPT演讲视频转文稿+图片“做好可以用来生成高质量的数据集哎！&#xA;flamingo的数据集里有视频文本、网页多模态文本。但它是short video，平均才22s，肯定做不到细粒度信息。估计是视频和视频描述。今天就可以做&#xA;关键步骤如下：&#xA;把视频中的关键帧提取出来组成 PPT 图片列表。每帧和前一帧的差异如果超过一定阈值，就认为是切换了一页 PPT。有一个开源软件 video2pdf 就能做到。 把每张图片 OCR 成文字，都是打印字符，识别准确率很高，Tesseract 就可以。 把停留在每页 PPT 上的视频音轨提取出来，交给 Speech-to-Text 模型识别，例如我用的是 OpenAI 开源的 Whisper。 （最后一步很重要）让大语言模型（例如 GPT-4）以 OCR 出来的当前页 PPT 和首页 PPT 内容为参考，修正 Speech-to-Text 模型识别出的 transcription。 Speech-to-Text 模型目前对于专有名词和人名的识别准确率并不高，但是这些专有名词很多是在这一页 PPT 中出现过的，PPT 首页也框定了演讲的标题和领域。因此以 PPT 内容为参考，大语言模型可以修正大部分的专有名词识别错误。如果没有 PPT 内容作为参考，需要 GPT-4 才能修正大部分的专有名词，但有了 PPT 内容，LLaMA-2-70b-chat 就足够了。此外，大语言模型可以修正演讲中口语化的表达，让文字稿更严谨、易读。 以下文字稿完全为自动生成，除了几个人名，一字未改。当然，一些小错误也就保留了，但是都无伤大雅。整个过程中用到的 Video2PDF、Tesseract、Whisper 和 LLaMA-2-70b-chat 模型都跑在我自己的 Mac 笔记本上，全程无需联网。 </description>
+    </item>
+  </channel>
+</rss>
