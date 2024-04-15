@@ -29,22 +29,20 @@
 
 
 <meta property="og:title" content="convert PowerPoint Presentation video to images and captions" />
-<meta property="og:description" content="ppt演讲视频转文稿&#43;图片
-有个很好的想法，这个工具”PPT演讲视频转文稿&#43;图片“做好可以用来生成高质量的数据集哎！
-flamingo的数据集里有视频文本、网页多模态文本。但它是short video，平均才22s，肯定做不到细粒度信息。估计是视频和视频描述。今天就可以做
-关键步骤如下：
-把视频中的关键帧提取出来组成 PPT 图片列表。每帧和前一帧的差异如果超过一定阈值，就认为是切换了一页 PPT。有一个开源软件 video2pdf 就能做到。 把每张图片 OCR 成文字，都是打印字符，识别准确率很高，Tesseract 就可以。 把停留在每页 PPT 上的视频音轨提取出来，交给 Speech-to-Text 模型识别，例如我用的是 OpenAI 开源的 Whisper。 （最后一步很重要）让大语言模型（例如 GPT-4）以 OCR 出来的当前页 PPT 和首页 PPT 内容为参考，修正 Speech-to-Text 模型识别出的 transcription。 Speech-to-Text 模型目前对于专有名词和人名的识别准确率并不高，但是这些专有名词很多是在这一页 PPT 中出现过的，PPT 首页也框定了演讲的标题和领域。因此以 PPT 内容为参考，大语言模型可以修正大部分的专有名词识别错误。如果没有 PPT 内容作为参考，需要 GPT-4 才能修正大部分的专有名词，但有了 PPT 内容，LLaMA-2-70b-chat 就足够了。此外，大语言模型可以修正演讲中口语化的表达，让文字稿更严谨、易读。 以下文字稿完全为自动生成，除了几个人名，一字未改。当然，一些小错误也就保留了，但是都无伤大雅。整个过程中用到的 Video2PDF、Tesseract、Whisper 和 LLaMA-2-70b-chat 模型都跑在我自己的 Mac 笔记本上，全程无需联网。 " />
+<meta property="og:description" content="There&rsquo;s a great idea: this tool &ldquo;PPT Presentation Video to Transcript &#43; Images&rdquo; could be used to generate high-quality datasets!
+The Flamingo dataset contains video texts and web multimodal texts. However, it consists of short videos, averaging only 22 seconds, so it definitely can&rsquo;t achieve fine-grained information. It&rsquo;s likely a combination of video and video descriptions. Today, I can do it! b3aca2da675d67feb7e3d0977cb1381a
+Here are the key steps:
+Extract keyframes from the video to create a list of PPT images." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/blogs/convert-powerpoint-presentation-video-to-images-and-captions/" /><meta property="article:section" content="blogs" />
 <meta property="article:published_time" content="2023-04-03T19:53:33+05:30" />
 <meta property="article:modified_time" content="2023-04-03T19:53:33+05:30" /><meta property="og:site_name" content="Hugo Profile" />
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="convert PowerPoint Presentation video to images and captions"/>
-<meta name="twitter:description" content="ppt演讲视频转文稿&#43;图片
-有个很好的想法，这个工具”PPT演讲视频转文稿&#43;图片“做好可以用来生成高质量的数据集哎！
-flamingo的数据集里有视频文本、网页多模态文本。但它是short video，平均才22s，肯定做不到细粒度信息。估计是视频和视频描述。今天就可以做
-关键步骤如下：
-把视频中的关键帧提取出来组成 PPT 图片列表。每帧和前一帧的差异如果超过一定阈值，就认为是切换了一页 PPT。有一个开源软件 video2pdf 就能做到。 把每张图片 OCR 成文字，都是打印字符，识别准确率很高，Tesseract 就可以。 把停留在每页 PPT 上的视频音轨提取出来，交给 Speech-to-Text 模型识别，例如我用的是 OpenAI 开源的 Whisper。 （最后一步很重要）让大语言模型（例如 GPT-4）以 OCR 出来的当前页 PPT 和首页 PPT 内容为参考，修正 Speech-to-Text 模型识别出的 transcription。 Speech-to-Text 模型目前对于专有名词和人名的识别准确率并不高，但是这些专有名词很多是在这一页 PPT 中出现过的，PPT 首页也框定了演讲的标题和领域。因此以 PPT 内容为参考，大语言模型可以修正大部分的专有名词识别错误。如果没有 PPT 内容作为参考，需要 GPT-4 才能修正大部分的专有名词，但有了 PPT 内容，LLaMA-2-70b-chat 就足够了。此外，大语言模型可以修正演讲中口语化的表达，让文字稿更严谨、易读。 以下文字稿完全为自动生成，除了几个人名，一字未改。当然，一些小错误也就保留了，但是都无伤大雅。整个过程中用到的 Video2PDF、Tesseract、Whisper 和 LLaMA-2-70b-chat 模型都跑在我自己的 Mac 笔记本上，全程无需联网。 "/>
+<meta name="twitter:description" content="There&rsquo;s a great idea: this tool &ldquo;PPT Presentation Video to Transcript &#43; Images&rdquo; could be used to generate high-quality datasets!
+The Flamingo dataset contains video texts and web multimodal texts. However, it consists of short videos, averaging only 22 seconds, so it definitely can&rsquo;t achieve fine-grained information. It&rsquo;s likely a combination of video and video descriptions. Today, I can do it! b3aca2da675d67feb7e3d0977cb1381a
+Here are the key steps:
+Extract keyframes from the video to create a list of PPT images."/>
 
 
 <link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
@@ -340,19 +338,30 @@ convert PowerPoint Presentation video to images and captions | Rui Lei
           </div>
           
           <article class="page-content  p-2">
-          <p>ppt演讲视频转文稿+图片</p>
-<p>有个很好的想法，这个工具”PPT演讲视频转文稿+图片“做好可以用来生成高质量的数据集哎！</p>
-<p>flamingo的数据集里有视频文本、网页多模态文本。但它是short video，平均才22s，肯定做不到细粒度信息。估计是视频和视频描述。今天就可以做<img src="/images/post_tool.png" alt="b3aca2da675d67feb7e3d0977cb1381a"></p>
-<p>关键步骤如下：</p>
-<ol>
-<li>把视频中的关键帧提取出来组成 PPT 图片列表。每帧和前一帧的差异如果超过一定阈值，就认为是切换了一页 PPT。有一个开源软件 video2pdf 就能做到。</li>
-<li>把每张图片 OCR 成文字，都是打印字符，识别准确率很高，Tesseract 就可以。</li>
-<li>把停留在每页 PPT 上的视频音轨提取出来，交给 Speech-to-Text 模型识别，例如我用的是 OpenAI 开源的 Whisper。</li>
-<li>（最后一步很重要）让大语言模型（例如 GPT-4）以 OCR 出来的当前页 PPT 和首页 PPT 内容为参考，修正 Speech-to-Text 模型识别出的 transcription。
-Speech-to-Text 模型目前对于专有名词和人名的识别准确率并不高，但是这些专有名词很多是在这一页 PPT 中出现过的，PPT 首页也框定了演讲的标题和领域。因此以 PPT 内容为参考，大语言模型可以修正大部分的专有名词识别错误。如果没有 PPT 内容作为参考，需要 GPT-4 才能修正大部分的专有名词，但有了 PPT 内容，LLaMA-2-70b-chat 就足够了。此外，大语言模型可以修正演讲中口语化的表达，让文字稿更严谨、易读。
-以下文字稿完全为自动生成，除了几个人名，一字未改。当然，一些小错误也就保留了，但是都无伤大雅。整个过程中用到的 Video2PDF、Tesseract、Whisper 和 LLaMA-2-70b-chat 模型都跑在我自己的 Mac 笔记本上，全程无需联网。</li>
-</ol>
+          <p>There&rsquo;s a great idea: this tool &ldquo;PPT Presentation Video to Transcript + Images&rdquo; could be used to generate high-quality datasets!</p>
+<p>The Flamingo dataset contains video texts and web multimodal texts. However, it consists of short videos, averaging only 22 seconds, so it definitely can&rsquo;t achieve fine-grained information. It&rsquo;s likely a combination of video and video descriptions. Today, I can do it!
+<a href="/images/post_tool.png">b3aca2da675d67feb7e3d0977cb1381a</a></p>
+<p>Here are the key steps:</p>
+<p>Extract keyframes from the video to create a list of PPT images. If the difference between each frame and the previous one exceeds a certain threshold, it&rsquo;s considered a transition to a new PPT slide. An open-source software like video2pdf can handle this.
+OCR each image into text. Since they are printed characters, the recognition accuracy is very high, and Tesseract can be used for this.
+Extract the audio track that stays on each PPT slide and feed it to a Speech-to-Text model for recognition. For example, I use the Whisper model open-sourced by OpenAI.
+(The final step is crucial) Let a large language model (e.g., GPT-4) correct the transcription recognized by the Speech-to-Text model based on the OCR&rsquo;d current slide content and the content of the first slide. The Speech-to-Text model currently has a low accuracy in recognizing proper nouns and names, but many of these proper nouns have appeared on this PPT slide, and the first slide of the PPT also defines the title and domain of the presentation. Therefore, with the content of the PPT as a reference, the large language model can correct most of the recognition errors of proper nouns. Without the content of the PPT as a reference, GPT-4 is needed to correct most of the proper nouns, but with the PPT content, LLaMA-2-70b-chat is sufficient. Additionally, the large language model can correct colloquial expressions in the speech, making the transcript more rigorous and readable.
+The following transcript is completely generated automatically, with only a few names unchanged. Of course, some minor errors have been retained, but they are all harmless. The Video2PDF, Tesseract, Whisper, and LLaMA-2-70b-chat models used in the entire process are running on my own MacBook laptop without the need for an internet connection.</p>
+<!--ppt演讲视频转文稿+图片
 
+有个很好的想法，这个工具”PPT演讲视频转文稿+图片“做好可以用来生成高质量的数据集哎！
+
+flamingo的数据集里有视频文本、网页多模态文本。但它是short video，平均才22s，肯定做不到细粒度信息。估计是视频和视频描述。今天就可以做![b3aca2da675d67feb7e3d0977cb1381a](/images/post_tool.png)
+
+关键步骤如下：
+
+1. 把视频中的关键帧提取出来组成 PPT 图片列表。每帧和前一帧的差异如果超过一定阈值，就认为是切换了一页 PPT。有一个开源软件 video2pdf 就能做到。
+2. 把每张图片 OCR 成文字，都是打印字符，识别准确率很高，Tesseract 就可以。
+3. 把停留在每页 PPT 上的视频音轨提取出来，交给 Speech-to-Text 模型识别，例如我用的是 OpenAI 开源的 Whisper。
+4. （最后一步很重要）让大语言模型（例如 GPT-4）以 OCR 出来的当前页 PPT 和首页 PPT 内容为参考，修正 Speech-to-Text 模型识别出的 transcription。
+Speech-to-Text 模型目前对于专有名词和人名的识别准确率并不高，但是这些专有名词很多是在这一页 PPT 中出现过的，PPT 首页也框定了演讲的标题和领域。因此以 PPT 内容为参考，大语言模型可以修正大部分的专有名词识别错误。如果没有 PPT 内容作为参考，需要 GPT-4 才能修正大部分的专有名词，但有了 PPT 内容，LLaMA-2-70b-chat 就足够了。此外，大语言模型可以修正演讲中口语化的表达，让文字稿更严谨、易读。
+以下文字稿完全为自动生成，除了几个人名，一字未改。当然，一些小错误也就保留了，但是都无伤大雅。整个过程中用到的 Video2PDF、Tesseract、Whisper 和 LLaMA-2-70b-chat 模型都跑在我自己的 Mac 笔记本上，全程无需联网。
+-->
           </article>
         </div>
       </div>

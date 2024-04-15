@@ -13,7 +13,7 @@
       <link>http://localhost:1313/blogs/convert-powerpoint-presentation-video-to-images-and-captions/</link>
       <pubDate>Mon, 03 Apr 2023 19:53:33 +0530</pubDate>
       <guid>http://localhost:1313/blogs/convert-powerpoint-presentation-video-to-images-and-captions/</guid>
-      <description>ppt演讲视频转文稿+图片&#xA;有个很好的想法，这个工具”PPT演讲视频转文稿+图片“做好可以用来生成高质量的数据集哎！&#xA;flamingo的数据集里有视频文本、网页多模态文本。但它是short video，平均才22s，肯定做不到细粒度信息。估计是视频和视频描述。今天就可以做&#xA;关键步骤如下：&#xA;把视频中的关键帧提取出来组成 PPT 图片列表。每帧和前一帧的差异如果超过一定阈值，就认为是切换了一页 PPT。有一个开源软件 video2pdf 就能做到。 把每张图片 OCR 成文字，都是打印字符，识别准确率很高，Tesseract 就可以。 把停留在每页 PPT 上的视频音轨提取出来，交给 Speech-to-Text 模型识别，例如我用的是 OpenAI 开源的 Whisper。 （最后一步很重要）让大语言模型（例如 GPT-4）以 OCR 出来的当前页 PPT 和首页 PPT 内容为参考，修正 Speech-to-Text 模型识别出的 transcription。 Speech-to-Text 模型目前对于专有名词和人名的识别准确率并不高，但是这些专有名词很多是在这一页 PPT 中出现过的，PPT 首页也框定了演讲的标题和领域。因此以 PPT 内容为参考，大语言模型可以修正大部分的专有名词识别错误。如果没有 PPT 内容作为参考，需要 GPT-4 才能修正大部分的专有名词，但有了 PPT 内容，LLaMA-2-70b-chat 就足够了。此外，大语言模型可以修正演讲中口语化的表达，让文字稿更严谨、易读。 以下文字稿完全为自动生成，除了几个人名，一字未改。当然，一些小错误也就保留了，但是都无伤大雅。整个过程中用到的 Video2PDF、Tesseract、Whisper 和 LLaMA-2-70b-chat 模型都跑在我自己的 Mac 笔记本上，全程无需联网。 </description>
+      <description>There&amp;rsquo;s a great idea: this tool &amp;ldquo;PPT Presentation Video to Transcript + Images&amp;rdquo; could be used to generate high-quality datasets!&#xA;The Flamingo dataset contains video texts and web multimodal texts. However, it consists of short videos, averaging only 22 seconds, so it definitely can&amp;rsquo;t achieve fine-grained information. It&amp;rsquo;s likely a combination of video and video descriptions. Today, I can do it! b3aca2da675d67feb7e3d0977cb1381a&#xA;Here are the key steps:&#xA;Extract keyframes from the video to create a list of PPT images.</description>
     </item>
     <item>
       <title>Render Math With Mathjax</title>
@@ -42,20 +42,6 @@
       <pubDate>Sat, 03 Apr 2021 22:53:58 +0530</pubDate>
       <guid>http://localhost:1313/blogs/emoji-support/</guid>
       <description>Emoji can be enabled in a Hugo project in a number of ways. :zap:&#xA;Emoji Support The emojify function can be called directly in templates or Inline Shortcodes.&#xA;To enable emoji globally, set enableEmoji to true in your site’s configuration and then you can type emoji shorthand codes directly in content files; e.g.&#xA;The Emoji cheat sheet is a useful reference for emoji shorthand codes.&#xA;N.B. The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform.</description>
-    </item>
-    <item>
-      <title>Placeholder Text</title>
-      <link>http://localhost:1313/blogs/placeholder-text/</link>
-      <pubDate>Sat, 03 Apr 2021 22:41:10 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/placeholder-text/</guid>
-      <description>Lorem est tota propiore conpellat pectoribus de pectora summo.&#xA;Redit teque digerit hominumque toris verebor lumina non cervice subde tollit usus habet Arctonque, furores quas nec ferunt. Quoque montibus nunc caluere tempus inhospita parcite confusaque translucet patri vestro qui optatis lumine cognoscere flos nubis! Fronde ipsamque patulos Dryopen deorum.&#xA;Exierant elisi ambit vivere dedere Duce pollice Eris modo Spargitque ferrea quos palude Rursus nulli murmur; hastile inridet ut ab gravi sententia!</description>
-    </item>
-    <item>
-      <title>Rich Content</title>
-      <link>http://localhost:1313/blogs/rich-content/</link>
-      <pubDate>Sat, 03 Apr 2021 19:53:33 +0530</pubDate>
-      <guid>http://localhost:1313/blogs/rich-content/</guid>
-      <description>Hugo ships with several Built-in Shortcodes for rich content, along with a Privacy Config and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&#xA;Gist Simple Shortcode {{&amp;lt; gist spf13 7896402 &amp;#34;img.html&amp;#34; &amp;gt;}} Twitter Simple Shortcode {{&amp;lt; tweet GoHugoIO 1315233626070503424 &amp;gt;}} Owl bet you&amp;#39;ll lose this staring contest 🦉 pic.twitter.com/eJh4f2zncC&#xA;&amp;mdash; San Diego Zoo Wildlife Alliance (@sandiegozoo) October 26, 2021 Vimeo Simple Shortcode {{&amp;lt; vimeo 146022717 &amp;gt;}} Youtube Simple Shortcode {{&amp;lt; youtube w7Ft2ymGmfc &amp;gt;}} Theme Custom Shortcodes These shortcodes are not Hugo built-ins, but are provided by the theme.</description>
     </item>
   </channel>
 </rss>
